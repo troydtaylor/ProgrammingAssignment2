@@ -1,17 +1,15 @@
-## Put comments here that give an overall description of what your
-## functions do
-
-## Write a short comment describing this function
-
 makeCacheMatrix <- function(x = matrix()) {
-    m<-NULL #initialize the matrix
-    #The <<- allows assign value to an environment other than this function
+	# Per the assignment: This function creates a special "matrix" object that
+	# can cache its inverse. 
+	m<-NULL #initialize the matrix
+    # The <<- allows assign value to an environment outside than this 
+	# function IE lexically scoped
     set<-function(y){
         x<<-y
         m<<-NULL
     }
     get<-function() x
-    #now create a variaion of our solve function to set the inv matrix
+    #now create a variaion of solve function to set the inv matrix
     setsolve <- function(solve) m <<- solve
     getsolve <- function() m
     list(set = set, get = get,
@@ -20,7 +18,11 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 cacheSolve <- function(x = matrix(), ...) {
-    ## Return a matrix that is the inverse of 'x'
+    ## Per the assignment: This function computes the inverse of the special 
+	## "matrix" returned by makeCacheMatrix above. If the inverse has already
+	## been calculated (and the matrix has not changed), then the cachesolve 
+	## should retrieve the inverse from the cache - IE - Return a matrix that
+	## is the inverse of 'x'
     m<-x$getsolve()
     # Here we check if the matrix m exists and return it if it does
     # The return will exit you from the function
