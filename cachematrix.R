@@ -1,9 +1,9 @@
 makeCacheMatrix <- function(x = matrix()) {
-	# Per the assignment: This function creates a special "matrix" object that
-	# can cache its inverse. 
-	m<-NULL #initialize the matrix
+    # Per the assignment: This function creates a special "matrix" object that
+    # can cache its inverse. 
+    m<-NULL #initialize the matrix
     # The <<- allows assign value to an environment outside than this 
-	# function IE lexically scoped
+    # function IE lexically scoped
     set<-function(y){
         x<<-y
         m<<-NULL
@@ -19,10 +19,10 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x = matrix(), ...) {
     ## Per the assignment: This function computes the inverse of the special 
-	## "matrix" returned by makeCacheMatrix above. If the inverse has already
-	## been calculated (and the matrix has not changed), then the cachesolve 
-	## should retrieve the inverse from the cache - IE - Return a matrix that
-	## is the inverse of 'x'
+    ## "matrix" returned by makeCacheMatrix above. If the inverse has already
+    ## been calculated (and the matrix has not changed), then the cachesolve 
+    ## should retrieve the inverse from the cache - IE - Return a matrix that
+    ## is the inverse of 'x'
     m<-x$getsolve()
     # Here we check if the matrix m exists and return it if it does
     # The return will exit you from the function
